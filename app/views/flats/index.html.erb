@@ -1,0 +1,32 @@
+<div class='container'>
+  <h1>All our Flats</h1>
+  <h4>All <%= @flats.length %> Flats</h1>
+  <div class='row'>
+    <% @flats.each do |flat| %>
+      <div class="col-4">
+        <div  class='card my-4'>
+          <%= image_tag "https://i.picsum.photos/id/83#{flat.id}/300/200.jpg", alt: "alttext" %>
+          <div class='card-design px-4 pt-4'>
+            <div class=' middle-card'>
+              <h5> <%= flat.name %></h5>
+              <%= flat.address %>
+            </div>
+            <div class = 'pt-4 d-flex justify-content-between'>
+              <p><i class="fas fa-euro-sign"></i> <%= flat.price_per_night %></p>
+              <p><i class="fas fa-user-friends "></i> <%= flat.number_of_guests %></p>
+            </div>
+          </div>
+          <div class='border-top border-black p-2 justify-content-center d-flex'>
+              <%= link_to flat_path(flat), class:"text-primary mr-2" do %>
+                More Info
+              <% end %>
+              <a class="text-warning mr-2">Edit </a>
+              <a class="text-danger">Remove </a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
